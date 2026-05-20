@@ -16,6 +16,13 @@ function monthLabel(date: string) {
   return monthFormatter.format(new Date(`${date}T12:00:00`));
 }
 
+function shortDate(date: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+  }).format(new Date(`${date}T12:00:00`));
+}
+
 export function VenueDirectory() {
   const monthOptions = useMemo(() => {
     const labels = new Map<string, string>();
@@ -39,17 +46,20 @@ export function VenueDirectory() {
   }, [activeMonth]);
 
   return (
-    <section className="grid gap-4 rounded-3xl border border-slate-800 bg-slate-950 p-4 shadow-xl shadow-slate-950/30 sm:p-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div className="space-y-1">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+    <section className="grid gap-5 rounded-[2rem] border border-white/10 bg-[#08111f] p-4 shadow-[0_30px_120px_rgba(2,6,23,0.4)] sm:p-6 lg:p-8">
+      <div className="flex flex-col gap-4 border-b border-white/10 pb-4 sm:pb-5 lg:flex-row lg:items-end lg:justify-between">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">
             Venue directory
           </p>
-          <h3 className="text-xl font-semibold text-white">Sample venues with client-side date filtering</h3>
+          <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl">
+            Editorial venue cards that feel like a matchday rundown.
+          </h3>
           <p className="max-w-2xl text-sm leading-6 text-slate-300">
-            Sample content is marked for validation. Swap in confirmed venues, dates, and ticket links in one data file.
+            Keep the venue list data-driven and swap in confirmed locations, dates, and ticket links without reworking the layout.
           </p>
         </div>
+
         <div className="flex flex-wrap gap-2">
           <FilterButton active={activeMonth === "all"} onClick={() => setActiveMonth("all")}>
             All dates
@@ -66,37 +76,47 @@ export function VenueDirectory() {
         </div>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-        {filteredVenues.map((venue) => (
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {filteredVenues.map((venue, index) => (
           <article
             key={venue.id}
-            className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-4 text-white"
+            className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.05] p-4 text-white transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.07]"
           >
-            <div className="space-y-3">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h4 className="text-lg font-semibold">{venue.name}</h4>
-                  <p className="text-sm text-slate-300">
-                    {venue.city}, {venue.country} · {venue.neighborhood}
-                  </p>
-                </div>
-                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-300 via-cyan-300 to-fuchsia-400" />
+            <div className="absolute right-3 top-3 rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">
+              #{String(index + 1).padStart(2, "0")}
+            </div>
+
+            <div className="space-y-4">
+              <div className="space-y-2 pr-14">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-200">
+                  {venue.city} · {venue.country}
+                </p>
+                <h4 className="text-xl font-bold tracking-tight text-white">{venue.name}</h4>
+                <p className="text-sm text-slate-300">{venue.neighborhood}</p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.22em]">
+                <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-emerald-100">
                   {monthLabel(venue.date)}
+                </span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/75">
+                  Matchday {shortDate(venue.date)}
                 </span>
               </div>
 
               <dl className="grid grid-cols-2 gap-3 text-sm text-slate-300">
-                <div className="rounded-2xl bg-slate-950/70 p-3">
-                  <dt className="text-xs uppercase tracking-[0.2em] text-slate-500">Date</dt>
-                  <dd className="mt-1 font-medium text-white">{venue.date}</dd>
+                <div className="rounded-2xl border border-white/8 bg-slate-950/65 p-3">
+                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Date</dt>
+                  <dd className="mt-2 font-semibold text-white">{venue.date}</dd>
                 </div>
-                <div className="rounded-2xl bg-slate-950/70 p-3">
-                  <dt className="text-xs uppercase tracking-[0.2em] text-slate-500">Time</dt>
-                  <dd className="mt-1 font-medium text-white">{venue.time}</dd>
+                <div className="rounded-2xl border border-white/8 bg-slate-950/65 p-3">
+                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Time</dt>
+                  <dd className="mt-2 font-semibold text-white">{venue.time}</dd>
                 </div>
-                <div className="rounded-2xl bg-slate-950/70 p-3 col-span-2">
-                  <dt className="text-xs uppercase tracking-[0.2em] text-slate-500">Pickup window</dt>
-                  <dd className="mt-1 font-medium text-white">{venue.pickupWindow}</dd>
+                <div className="col-span-2 rounded-2xl border border-white/8 bg-slate-950/65 p-3">
+                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Pickup window</dt>
+                  <dd className="mt-2 font-semibold text-white">{venue.pickupWindow}</dd>
                 </div>
               </dl>
 
@@ -107,7 +127,7 @@ export function VenueDirectory() {
               href={venue.ticketHref}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+              className="mt-5 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-300 to-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:brightness-105"
             >
               {venue.ticketLabel}
             </a>
@@ -137,10 +157,10 @@ function FilterButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-3 py-2 text-sm transition ${
+      className={`rounded-full px-3 py-2 text-sm font-medium transition ${
         active
-          ? "bg-emerald-400 text-slate-950"
-          : "border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10"
+          ? "bg-white text-slate-950"
+          : "border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/10"
       }`}
     >
       {children}

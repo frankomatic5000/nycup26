@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s · NYCUP26",
   },
   description:
-    "NYCUP26 prototype for a World Cup bracelet/pass site with signup, venues, ticket links, pickup instructions, sponsor placeholders, and FAQ.",
+    "NYCUP26 prototype for a festive World Cup bracelet/pass hub with editorial venues, ticket links, pickup info, sponsor placeholders, and launch updates.",
   applicationName: "NYCUP26",
   keywords: ["NYCUP26", "World Cup", "bracelet", "pass", "venues", "tickets"],
 };

@@ -29,11 +29,23 @@ export type FaqItem = {
   answer: string;
 };
 
+export type HeroStat = {
+  label: string;
+  value: string;
+  note: string;
+};
+
+export type LaunchSignal = {
+  label: string;
+  value: string;
+  note: string;
+};
+
 export const site = {
   name: "NYCUP26",
   tagline: "World Cup bracelet + pass hub",
   description:
-    "Prototype homepage for NYCUP26 with signup, venue directory, ticket links, pickup guidance, sponsor placeholders, and FAQ.",
+    "NYCUP26 is a festive, mobile-first World Cup hub for bracelet and pass updates, venue discovery, ticket links, pickup instructions, sponsors, and FAQ.",
   domain: "Final domain TBD",
   eventDates: "Event dates TBD",
   ticketPlatform: "Ticket platform TBD",
@@ -41,10 +53,46 @@ export const site = {
   languages: "Languages TBD",
 };
 
+export const heroStats: HeroStat[] = [
+  {
+    label: "Event dates",
+    value: "TBD",
+    note: "Countdown-ready once the schedule is locked.",
+  },
+  {
+    label: "Venues",
+    value: "TBD",
+    note: "Update the city list without touching the layout.",
+  },
+  {
+    label: "Languages",
+    value: "TBD",
+    note: "Built to expand when translation decisions land.",
+  },
+];
+
+export const launchSignals: LaunchSignal[] = [
+  {
+    label: "Domain",
+    value: site.domain,
+    note: "Swap in the final URL when launch is approved.",
+  },
+  {
+    label: "Pickup",
+    value: site.pickupLocation,
+    note: "Keep the location and hours visible for mobile scanning.",
+  },
+  {
+    label: "Tickets",
+    value: site.ticketPlatform,
+    note: "Replace the sample provider once the vendor is confirmed.",
+  },
+];
+
 export const signupHighlights = [
   "Get launch updates and pickup announcements",
-  "Sample venue changes can be updated in one file",
-  "Prototype-only signup until email provider is chosen",
+  "Swap sample venues and ticket links from one data file",
+  "Prototype-only signup until the email provider is chosen",
 ];
 
 export const venues: Venue[] = [
