@@ -1,7 +1,27 @@
 import { CinematicHero } from "@/components/cinematic-hero";
 import { EmailSignupForm } from "@/components/email-signup-form";
 import { VenueDirectory } from "@/components/venue-directory";
-import { faqItems, launchSignals, site, ticketLinks, tickerItems } from "@/data/site";
+import {
+  campaignPillars,
+  faqItems,
+  journeySteps,
+  launchSignals,
+  site,
+  ticketLinks,
+  tickerItems,
+} from "@/data/site";
+
+const navItems = [
+  { href: "#venues", label: "Venues" },
+  { href: "#tickets", label: "Tickets" },
+  { href: "#faq", label: "FAQ" },
+];
+
+const toneClasses = {
+  yellow: "bg-[#f5d300] text-[#071223]",
+  blue: "bg-[#12345d] text-white",
+  green: "bg-[#1f5a33] text-[#e9f8ea]",
+} as const;
 
 const fallbackTicker = [
   {
@@ -11,24 +31,18 @@ const fallbackTicker = [
     tone: "yellow" as const,
   },
   {
-    label: "Pickup",
-    value: "Pickup location TBD",
-    note: "Safe fallback copy.",
+    label: "Route",
+    value: "Camarote Tickets / Eventbrite",
+    note: "Keep both ticket paths ready.",
     tone: "blue" as const,
   },
   {
-    label: "Ticket lane",
-    value: "Camarote / Eventbrite",
-    note: "Use the fallback path.",
+    label: "Pickup",
+    value: site.pickupLocation,
+    note: "Final address still under review.",
     tone: "green" as const,
   },
 ];
-
-const toneClasses = {
-  yellow: "bg-[#f5d300] text-[#071223]",
-  blue: "bg-[#12345d] text-white",
-  green: "bg-[#1f5a33] text-[#e9f8ea]",
-} as const;
 
 export default function Home() {
   const tickerBoard = tickerItems.length > 0 ? tickerItems : fallbackTicker;
@@ -36,61 +50,104 @@ export default function Home() {
   return (
     <main className="min-h-screen text-white">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-3 py-3 sm:px-5 lg:px-8 lg:py-6">
+        <TopNav />
         <TickerBar items={tickerBoard} />
-
         <CinematicHero />
 
-        <section className="grid gap-3 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:grid-cols-3 sm:p-5 lg:p-6">
-          {launchSignals.map((signal) => (
-            <article key={signal.label} className="rounded-[1.25rem] border border-white/10 bg-[#071423] p-4">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
-                {signal.label}
+        <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {campaignPillars.map((pillar) => (
+            <article
+              key={pillar.title}
+              className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_14px_40px_rgba(0,0,0,0.18)]"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#f5d300]">
+                {pillar.eyebrow}
               </p>
-              <p className="mt-2 text-lg font-bold text-white">{signal.value}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">{signal.note}</p>
+              <h2 className="mt-3 text-lg font-bold tracking-tight text-white">{pillar.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{pillar.note}</p>
             </article>
           ))}
         </section>
 
-        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:p-6">
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
-              Quick story
-            </p>
-            <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Big spectacle first, practical planning right beneath it.
-            </h2>
-            <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-              The landing page leads with the poster moment, then keeps the path short: venue cards, ticket lanes, and a
-              clear updates form.
-            </p>
-          </div>
+        <section className="grid gap-4 lg:grid-cols-[1.06fr_0.94fr]">
+          <article className="rounded-[2rem] border border-white/10 bg-[#071423] p-4 sm:p-5 lg:p-6">
+            <div className="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
+                  How the pass works
+                </p>
+                <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+                  One visual story. One clean path to the city.
+                </h2>
+              </div>
+              <span className="inline-flex rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-white/75">
+                {site.languages}
+              </span>
+            </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              {
-                title: "Watch parties",
-                note: "Game-day energy with friends and fans.",
-              },
-              {
-                title: "Special access",
-                note: "Selected venues and experiences for pass holders.",
-              },
-              {
-                title: "Venue discounts",
-                note: "Food, drinks, and entry perks at participating spots.",
-              },
-              {
-                title: "After-match plans",
-                note: "Keep the night going after the final whistle.",
-              },
-            ].map((tile) => (
-              <article key={tile.title} className="rounded-[1.15rem] border border-white/10 bg-[#071423] p-4">
-                <h3 className="text-lg font-bold text-white">{tile.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{tile.note}</p>
-              </article>
-            ))}
-          </div>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {journeySteps.map((step) => (
+                <article key={step.step} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-slate-500">
+                    Step {step.step}
+                  </p>
+                  <h3 className="mt-2 text-lg font-bold tracking-tight text-white">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{step.note}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              {launchSignals.map((signal) => (
+                <div key={signal.label} className="rounded-[1.1rem] border border-white/10 bg-[#0a1a2e] p-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
+                    {signal.label}
+                  </p>
+                  <p className="mt-2 text-base font-bold text-white">{signal.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{signal.note}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,24,43,0.95),rgba(6,17,31,0.96))] p-4 sm:p-5 lg:p-6">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#54b36b]">
+                Campaign tone
+              </p>
+              <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+                Premium, playful, and built to feel like a real launch.
+              </h2>
+              <p className="text-sm leading-6 text-slate-300">
+                NYC Play Pass should feel like a polished city campaign: cinematic hero art, short mobile-friendly copy,
+                and practical details right where people expect them.
+              </p>
+            </div>
+
+            <div className="mt-4 grid gap-3">
+              {[
+                "Keep the Statue of Liberty as the iconic hero, but let the story stay warm and editorial.",
+                "Use gold accents sparingly so the page feels premium instead of gamey or over-animated.",
+                "Make the bracelet visible in the illustration and repeat it in the copy so the pass feels real.",
+              ].map((note) => (
+                <div key={note} className="flex gap-3 rounded-[1.1rem] border border-white/10 bg-white/[0.04] p-4">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[#f5d300]" />
+                  <p className="text-sm leading-6 text-slate-300">{note}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {site.languages.split(" · ").map((language) => (
+                <span
+                  key={language}
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.28em] text-white/78"
+                >
+                  {language}
+                </span>
+              ))}
+            </div>
+          </article>
         </section>
 
         <section id="venues" className="scroll-mt-24">
@@ -103,14 +160,15 @@ export default function Home() {
         >
           <div className="space-y-4 rounded-[1.5rem] border border-white/10 bg-[#071423] p-5">
             <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#54b36b]">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
                 Ticket lanes
               </p>
               <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
                 Keep the booking path clean.
               </h3>
               <p className="max-w-xl text-sm leading-6 text-slate-300">
-                One primary path, one fallback, and a sponsor lane — all driven from data.
+                One primary path, one fallback, and a sponsor lane — all driven from data and easy to update before
+                launch.
               </p>
             </div>
 
@@ -142,7 +200,7 @@ export default function Home() {
 
           <div className="grid gap-4">
             <div className="rounded-[1.5rem] border border-white/10 bg-[#071423] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#54b36b]">
                 Email updates
               </p>
               <h3 className="mt-2 text-2xl font-black tracking-tight text-white sm:text-3xl">
@@ -203,6 +261,37 @@ export default function Home() {
         </footer>
       </div>
     </main>
+  );
+}
+
+function TopNav() {
+  return (
+    <header className="flex flex-col gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between">
+      <div className="space-y-1">
+        <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.34em] text-slate-300">
+          <span className="rounded-full border border-[#f5d300]/20 bg-[#f5d300]/12 px-3 py-1 text-[#f5d300]">
+            NYC Play Pass
+          </span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">NYCUP26</span>
+        </div>
+        <p className="max-w-lg text-sm leading-6 text-slate-300">
+          A cinematic World Cup city pass concept with a Statue of Liberty hero, bracelet focus, and a fast mobile
+          path.
+        </p>
+      </div>
+
+      <nav aria-label="Primary" className="flex flex-wrap gap-2">
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-white/85 transition hover:border-white/20 hover:bg-white/[0.06]"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </header>
   );
 }
 

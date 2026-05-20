@@ -34,15 +34,15 @@ export function EmailSignupForm() {
       />
       <button
         type="submit"
-        className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#f5d300] px-5 text-sm font-semibold text-[#071223]"
+        className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#f5d300] px-5 text-sm font-semibold text-[#071223] transition hover:translate-y-[-1px]"
       >
-        Join the waitlist
+        Keep me posted
       </button>
       <p className="text-xs leading-5 text-white/65">
-        Keep this connected to the chosen email provider before production launch.
+        This is still a prototype capture form. Hook it to your final email provider before launch.
       </p>
       {status === "done" ? (
-        <p className="rounded-2xl border border-[#54b36b]/25 bg-[#54b36b]/10 px-3 py-2 text-sm text-[#d7f8dd]">
+        <p className="rounded-2xl border border-[#54b36b]/25 bg-[#54b36b]/10 px-3 py-2 text-sm text-[#d7f8dd]" aria-live="polite">
           You’re on the list. This prototype captured your email locally for validation.
         </p>
       ) : null}

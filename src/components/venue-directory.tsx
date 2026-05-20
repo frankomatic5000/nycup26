@@ -50,7 +50,7 @@ export function VenueDirectory() {
       <div className="flex flex-col gap-4 border-b border-white/10 pb-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
-            Venue directory
+            Venue runway
           </p>
           <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl">
             Fast venue cards for mobile planning.
@@ -80,7 +80,7 @@ export function VenueDirectory() {
         {filteredVenues.map((venue, index) => (
           <article
             key={venue.id}
-            className="flex h-full flex-col rounded-[1.15rem] border border-white/10 bg-white/[0.04] p-4"
+            className="flex h-full flex-col rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-4 shadow-[0_14px_40px_rgba(0,0,0,0.16)]"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-1 pr-4">
@@ -146,10 +146,10 @@ function FilterButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-3 py-2 text-sm font-medium ${
+      className={`rounded-full px-3 py-2 text-sm font-medium transition ${
         active
           ? "bg-[#f5d300] text-[#071223]"
-          : "border border-white/10 bg-white/[0.04] text-slate-200"
+          : "border border-white/10 bg-white/[0.04] text-slate-200 hover:border-white/20 hover:bg-white/[0.06]"
       }`}
     >
       {children}

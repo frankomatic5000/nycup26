@@ -64,7 +64,7 @@ export const site = {
   code: "NYCUP26",
   tagline: "A cinematic city pass for World Cup matchdays",
   description:
-    "Turn New York into a matchday scene with one playful pass, clean mobile planning, and venue paths that feel easy to follow.",
+    "Turn New York into a matchday scene with one playful pass, a bracelet on the wrist, and mobile planning that stays easy to follow.",
   domain: "nycup26.com",
   eventDates: "June 11 – July 19 · 34 event days",
   ticketPlatform: "Camarote Tickets / Eventbrite",
@@ -131,8 +131,66 @@ export const heroStats: HeroStat[] = [
 
 export const heroHighlights = [
   "Statue of Liberty holding the World Cup trophy",
-  "A bracelet on the wrist to signal the pass",
+  "A bracelet on the wrist as the visible pass cue",
   "Fast mobile routes to venues, tickets, and pickup",
+];
+
+export type CampaignPillar = {
+  eyebrow: string;
+  title: string;
+  note: string;
+};
+
+export const campaignPillars: CampaignPillar[] = [
+  {
+    eyebrow: "Poster moment",
+    title: "Liberty trades the torch for the trophy.",
+    note: "A hero image that feels like a city campaign, not a generic sports banner.",
+  },
+  {
+    eyebrow: "Mobile-first",
+    title: "Big type, clear CTAs, zero scavenger hunt.",
+    note: "The first screen tells the story and the next tap takes people somewhere useful.",
+  },
+  {
+    eyebrow: "City access",
+    title: "Bracelet, venues, tickets, pickup — in one flow.",
+    note: "Keep the pass legible so the value is obvious before launch details are final.",
+  },
+  {
+    eyebrow: "Launch-safe",
+    title: "Built as a lightweight Vercel-ready marketing page.",
+    note: "Static content, fast visuals, and a code path that stays easy to ship.",
+  },
+];
+
+export type JourneyStep = {
+  step: string;
+  title: string;
+  note: string;
+};
+
+export const journeySteps: JourneyStep[] = [
+  {
+    step: "01",
+    title: "Pick the matchday",
+    note: "Lead with the date, then let the rest of the page react around it.",
+  },
+  {
+    step: "02",
+    title: "Choose the neighborhood",
+    note: "Show venues by month so the page stays easy to scan on mobile.",
+  },
+  {
+    step: "03",
+    title: "Open the ticket lane",
+    note: "Keep the booking path obvious with one primary button and one fallback.",
+  },
+  {
+    step: "04",
+    title: "Confirm pickup",
+    note: "Make the bracelet story real by keeping the pickup status visible.",
+  },
 ];
 
 export const launchSignals: LaunchSignal[] = [
@@ -383,7 +441,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Where do people pick up bracelets or passes?",
     answer:
-      "Pickup is still being finalized, with Iron Bar, Margaritaville, and Planet Hollywood under consideration.",
+      "Pickup is still being finalized. Keep the location as TBD until the team confirms the best operational option.",
   },
   {
     question: "What languages are supported?",
@@ -391,6 +449,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "What is the suggested brand display?",
-    answer: "NYC Play Pass is the recommended direction for now.",
+    answer: "NYC Play Pass is the recommended direction for now, with NYCUP26 used as the campaign code.",
   },
 ];
