@@ -53,6 +53,9 @@ export default function Home() {
               <h1 className="text-2xl font-black tracking-tight sm:text-3xl">
                 {site.tagline}
               </h1>
+              <p className="text-sm font-medium text-white/70">
+                Suggested display name: <span className="text-white">{site.brandDisplay}</span>
+              </p>
             </div>
             <nav className="flex flex-wrap gap-2 text-sm text-slate-200">
               <a className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:bg-white/10" href="#signup">
@@ -123,7 +126,7 @@ export default function Home() {
                   </p>
                   <p className="mt-2 text-2xl font-black tracking-tight text-white">Countdown mode</p>
                   <p className="mt-2 text-sm leading-6 text-slate-300">
-                    Dates, ticket platform, and pickup location remain placeholders until operations locks them in.
+                    Dates are set. Ticketing, pickup location, and benefit setup are still being finalized.
                   </p>
                 </div>
 
@@ -135,7 +138,7 @@ export default function Home() {
                           {signal.label}
                         </p>
                         <span className="rounded-full border border-white/10 bg-slate-950/60 px-2.5 py-1 text-xs font-semibold text-white/80">
-                          TBD
+                          Ready
                         </span>
                       </div>
                       <p className="mt-2 text-lg font-bold text-white">{signal.value}</p>
@@ -259,7 +262,7 @@ export default function Home() {
               Make ticketing feel official, urgent, and easy to scan.
             </h3>
             <p className="max-w-2xl text-sm leading-6 text-slate-300">
-              These links stay sample placeholders until the provider is finalized. The structure is already tuned for a polished ticket-forward launch.
+              These links are now aligned with the likely ticketing options. Swap them once the final provider is confirmed.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -322,7 +325,7 @@ export default function Home() {
               Keep pickup messaging prominent, fast, and operationally clear.
             </h3>
             <p className="max-w-2xl text-sm leading-6 text-slate-300">
-              The final pickup location is still TBD, so the layout is ready for hours, map embeds, support contacts, and arrival notes without changing the structure.
+              The final pickup location is still under review, so the layout is ready for hours, map embeds, support contacts, and arrival notes without changing the structure.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

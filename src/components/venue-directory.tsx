@@ -115,7 +115,7 @@ export function VenueDirectory() {
                   <dd className="mt-2 font-semibold text-white">{venue.time}</dd>
                 </div>
                 <div className="col-span-2 rounded-2xl border border-white/8 bg-slate-950/65 p-3">
-                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Pickup window</dt>
+                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Benefits status</dt>
                   <dd className="mt-2 font-semibold text-white">{venue.pickupWindow}</dd>
                 </div>
               </dl>
