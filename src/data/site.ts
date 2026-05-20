@@ -62,9 +62,9 @@ export type TickerItem = {
 export const site = {
   name: "NYC Play Pass",
   code: "NYCUP26",
-  tagline: "A city pass for World Cup matchdays",
+  tagline: "A cinematic city pass for World Cup matchdays",
   description:
-    "Plan your visit, find a venue, and keep the day moving with one simple pass for NYC visitors.",
+    "Turn New York into a matchday scene with one playful pass, clean mobile planning, and venue paths that feel easy to follow.",
   domain: "nycup26.com",
   eventDates: "June 11 – July 19 · 34 event days",
   ticketPlatform: "Camarote Tickets / Eventbrite",
@@ -127,6 +127,12 @@ export const heroStats: HeroStat[] = [
     value: "3",
     note: "English first, with Portuguese and Spanish support.",
   },
+];
+
+export const heroHighlights = [
+  "Statue of Liberty holding the World Cup trophy",
+  "A bracelet on the wrist to signal the pass",
+  "Fast mobile routes to venues, tickets, and pickup",
 ];
 
 export const launchSignals: LaunchSignal[] = [

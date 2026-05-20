@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     template: "%s · NYC Play Pass",
   },
   description:
-    "NYC Play Pass is a mobile-first World Cup city pass for New York visitors, with venue planning, ticket lanes, pickup status, and a cleaner matchday flow.",
+    "NYC Play Pass is a cinematic World Cup city pass for New York visitors, with a Statue of Liberty hero, venue discovery, ticket lanes, and a mobile-first matchday flow.",
   applicationName: "NYC Play Pass",
   keywords: ["NYC Play Pass", "World Cup", "bracelet", "pass", "venues", "tickets"],
   openGraph: {
     title: "NYC Play Pass",
     description:
-      "Plan your visit, browse venues, and follow the ticket lane for NYC Play Pass.",
+      "A cinematic World Cup city pass for New York — Statue of Liberty, trophy energy, and a clean mobile journey.",
     url: "https://nycup26.com",
     siteName: "NYC Play Pass",
     type: "website",

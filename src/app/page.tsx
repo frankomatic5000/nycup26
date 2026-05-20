@@ -1,15 +1,7 @@
+import { CinematicHero } from "@/components/cinematic-hero";
 import { EmailSignupForm } from "@/components/email-signup-form";
 import { VenueDirectory } from "@/components/venue-directory";
-import {
-  faqItems,
-  heroStats,
-  launchSignals,
-  site,
-  signupHighlights,
-  ticketLinks,
-  tickerItems,
-  visitSteps,
-} from "@/data/site";
+import { faqItems, launchSignals, site, ticketLinks, tickerItems } from "@/data/site";
 
 const fallbackTicker = [
   {
@@ -46,145 +38,68 @@ export default function Home() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-3 py-3 sm:px-5 lg:px-8 lg:py-6">
         <TickerBar items={tickerBoard} />
 
-        <header className="rounded-[1.75rem] border border-white/10 bg-[#071423] px-4 py-5 sm:px-6 lg:px-7">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
-                {site.name}
-              </p>
-              <h1 className="max-w-3xl text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
-                {site.tagline}
-              </h1>
-              <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-                {site.description}
-              </p>
-            </div>
+        <CinematicHero />
 
-            <nav className="flex flex-wrap gap-2 text-sm">
-              <a
-                className="inline-flex h-11 items-center justify-center rounded-full bg-[#f5d300] px-4 font-semibold text-[#071223]"
-                href="#plan"
-              >
-                Plan your visit
-              </a>
-              <a
-                className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-[#12345d] px-4 font-semibold text-white"
-                href="#venues"
-              >
-                Venues
-              </a>
-              <a
-                className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-transparent px-4 font-semibold text-white"
-                href="#tickets"
-              >
-                Tickets + updates
-              </a>
-            </nav>
-          </div>
-        </header>
-
-        <section
-          id="plan"
-          className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 sm:p-5 lg:grid-cols-[1.08fr_0.92fr] lg:p-6"
-        >
-          <div className="space-y-5">
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
-                Main entry point
+        <section className="grid gap-3 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:grid-cols-3 sm:p-5 lg:p-6">
+          {launchSignals.map((signal) => (
+            <article key={signal.label} className="rounded-[1.25rem] border border-white/10 bg-[#071423] p-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
+                {signal.label}
               </p>
-              <h2 className="max-w-2xl text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Plan your visit in under a minute.
-              </h2>
-              <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-                Start with the date, pick the area, and open the right ticket lane before you head across town.
-              </p>
-            </div>
+              <p className="mt-2 text-lg font-bold text-white">{signal.value}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{signal.note}</p>
+            </article>
+          ))}
+        </section>
 
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#venues"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-[#f5d300] px-5 text-sm font-semibold text-[#071223]"
-              >
-                Browse venues
-              </a>
-              <a
-                href="#tickets"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/10 bg-[#12345d] px-5 text-sm font-semibold text-white"
-              >
-                See ticket lanes
-              </a>
-              <a
-                href="#faq"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/10 bg-transparent px-5 text-sm font-semibold text-white"
-              >
-                Quick answers
-              </a>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-3">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="rounded-[1.25rem] border border-white/10 bg-[#071423] p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
-                    {stat.label}
-                  </p>
-                  <p className="mt-2 text-2xl font-black text-white">{stat.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{stat.note}</p>
-                </div>
-              ))}
-            </div>
+        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:p-6">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
+              Quick story
+            </p>
+            <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+              Big spectacle first, practical planning right beneath it.
+            </h2>
+            <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
+              The landing page leads with the poster moment, then keeps the path short: venue cards, ticket lanes, and a
+              clear updates form.
+            </p>
           </div>
 
-          <div className="rounded-[1.5rem] border border-white/10 bg-[#071423] p-4 sm:p-5">
-            <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#54b36b]">
-                  Visit flow
-                </p>
-                <h3 className="mt-1 text-xl font-bold text-white">Four simple steps</h3>
-              </div>
-              <span className="rounded-full border border-[#f5d300]/30 bg-[#f5d300]/10 px-3 py-1 text-xs font-semibold text-[#f5d300]">
-                Mobile-first
-              </span>
-            </div>
-
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {visitSteps.map((step) => (
-                <article key={step.step} className="rounded-[1.15rem] border border-white/10 bg-white/[0.04] p-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-[#f5d300] px-2.5 py-1 text-xs font-semibold text-[#071223]">
-                      {step.step}
-                    </span>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-                      Step
-                    </span>
-                  </div>
-                  <h4 className="mt-3 text-base font-bold text-white">{step.title}</h4>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{step.note}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              {launchSignals.map((signal) => (
-                <div key={signal.label} className="rounded-[1rem] border border-white/10 bg-[#0a1a2e] p-3">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
-                    {signal.label}
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-white">{signal.value}</p>
-                  <p className="mt-1 text-xs leading-5 text-slate-400">{signal.note}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                title: "Watch parties",
+                note: "Game-day energy with friends and fans.",
+              },
+              {
+                title: "Special access",
+                note: "Selected venues and experiences for pass holders.",
+              },
+              {
+                title: "Venue discounts",
+                note: "Food, drinks, and entry perks at participating spots.",
+              },
+              {
+                title: "After-match plans",
+                note: "Keep the night going after the final whistle.",
+              },
+            ].map((tile) => (
+              <article key={tile.title} className="rounded-[1.15rem] border border-white/10 bg-[#071423] p-4">
+                <h3 className="text-lg font-bold text-white">{tile.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{tile.note}</p>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="scroll-mt-24">
+        <section id="venues" className="scroll-mt-24">
           <VenueDirectory />
         </section>
 
         <section
           id="tickets"
-          className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 sm:p-5 lg:grid-cols-[0.95fr_1.05fr] lg:p-6"
+          className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:grid-cols-[0.95fr_1.05fr] lg:p-6"
         >
           <div className="space-y-4 rounded-[1.5rem] border border-white/10 bg-[#071423] p-5">
             <div className="space-y-2">
@@ -195,7 +110,7 @@ export default function Home() {
                 Keep the booking path clean.
               </h3>
               <p className="max-w-xl text-sm leading-6 text-slate-300">
-                Use one data file to swap providers later without changing the layout.
+                One primary path, one fallback, and a sponsor lane — all driven from data.
               </p>
             </div>
 
@@ -206,7 +121,7 @@ export default function Home() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-[1.1rem] border border-white/10 bg-white/[0.04] p-4"
+                  className="rounded-[1.1rem] border border-white/10 bg-white/[0.04] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -238,8 +153,15 @@ export default function Home() {
               </p>
 
               <ul className="mt-4 grid gap-2 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {signupHighlights.map((item) => (
-                  <li key={item} className="flex gap-3 rounded-[1rem] border border-white/10 bg-white/[0.04] p-3 text-sm text-slate-300">
+                {[
+                  "Get launch updates and pickup announcements",
+                  "Swap venues, benefits, and ticket links from one data file",
+                  "Ready for English, Portuguese, and Spanish",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 rounded-[1rem] border border-white/10 bg-white/[0.04] p-3 text-sm text-slate-300"
+                  >
                     <span className="mt-1 h-2 w-2 rounded-full bg-[#f5d300]" />
                     <span>{item}</span>
                   </li>
@@ -253,7 +175,7 @@ export default function Home() {
 
         <section
           id="faq"
-          className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 sm:p-5 lg:p-6"
+          className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:p-6"
         >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#54b36b]">FAQ</p>
@@ -305,7 +227,9 @@ function TickerBar({
             key={`${item.label}-${index}`}
             className="flex min-w-[16rem] items-center gap-3 rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3"
           >
-            <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] ${toneClasses[item.tone]}`}>
+            <span
+              className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] ${toneClasses[item.tone]}`}
+            >
               {item.label}
             </span>
             <div className="min-w-0">

@@ -8,7 +8,7 @@ export function EmailSignupForm() {
 
   return (
     <form
-      className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-[#071423] p-4"
+      className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-[#071423] p-4 shadow-[0_18px_50px_rgba(0,0,0,0.22)]"
       onSubmit={(event) => {
         event.preventDefault();
         setStatus("done");
@@ -19,7 +19,7 @@ export function EmailSignupForm() {
           Email for launch updates
         </label>
         <span className="rounded-full border border-[#54b36b]/30 bg-[#54b36b]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a7e1b1]">
-          Prototype
+          Launch list
         </span>
       </div>
       <input
@@ -43,7 +43,7 @@ export function EmailSignupForm() {
       </p>
       {status === "done" ? (
         <p className="rounded-2xl border border-[#54b36b]/25 bg-[#54b36b]/10 px-3 py-2 text-sm text-[#d7f8dd]">
-          Thanks. This prototype captured your email locally for validation.
+          You’re on the list. This prototype captured your email locally for validation.
         </p>
       ) : null}
     </form>
