@@ -1,11 +1,9 @@
 import Image from "next/image";
-import { EmailSignupForm } from "@/components/email-signup-form";
 import { VenueDirectory } from "@/components/venue-directory";
-import { faqItems, heroHighlights, heroStats, site, signupHighlights, visitSteps } from "@/data/site";
+import { heroHighlights, heroStats, site } from "@/data/site";
 
 const navItems = [
   { href: "#venues", label: "Venues" },
-  { href: "#how-it-works", label: "How it works" },
   { href: "#signup", label: "Waitlist" },
 ];
 
@@ -139,76 +137,24 @@ export default function Home() {
         </section>
 
         <section
-          id="how-it-works"
-          className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:grid-cols-[0.92fr_1.08fr] lg:p-6"
-        >
-          <div className="space-y-3 rounded-[1.5rem] border border-white/10 bg-[#071423] p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">How it works</p>
-            <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Choose your dates, collect the bracelet, unlock the city.
-            </h2>
-            <p className="text-sm leading-6 text-slate-300">
-              Keep the flow fast and obvious. The homepage should feel like a poster first and a utility page second.
-            </p>
-            <ul className="grid gap-2 text-sm text-slate-300">
-              {signupHighlights.map((item) => (
-                <li key={item} className="flex gap-3 rounded-[1rem] border border-white/10 bg-white/[0.04] p-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#f5d300]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {visitSteps.map((step) => (
-              <article key={step.step} className="rounded-[1.25rem] border border-white/10 bg-[#071423] p-4">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-slate-500">Step {step.step}</p>
-                <h3 className="mt-2 text-lg font-bold tracking-tight text-white">{step.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{step.note}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section
           id="signup"
-          className="grid gap-4 rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(245,211,0,0.08),rgba(84,179,107,0.06)),rgba(255,255,255,0.03)] p-4 sm:p-5 lg:grid-cols-[1.02fr_0.98fr] lg:p-6"
+          className="flex flex-col items-start gap-4 rounded-[1.5rem] border border-white/10 bg-[linear-gradient(135deg,rgba(245,211,0,0.08),rgba(84,179,107,0.06)),rgba(255,255,255,0.03)] p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5"
         >
-          <div className="space-y-4 rounded-[1.5rem] border border-white/10 bg-[#071423] p-5">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#54b36b]">Early access</p>
-              <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-                Be first to unlock NYC GAME PASS.
-              </h2>
-              <p className="max-w-xl text-sm leading-6 text-slate-300">
-                Sign up for launch updates, venue drops, and pickup details before the pass goes live.
-              </p>
-            </div>
-
-            <div className="grid gap-2">
-              {heroHighlights.map((item) => (
-                <div key={item} className="flex gap-3 rounded-[1rem] border border-white/10 bg-white/[0.04] p-3 text-sm text-slate-300">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#54b36b]" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#54b36b]">Early access</p>
+            <h2 className="text-xl font-black tracking-tight text-white sm:text-2xl">
+              Be first to unlock NYC GAME PASS.
+            </h2>
+            <p className="max-w-2xl text-sm leading-6 text-slate-300">
+              Launch updates, venue drops, and pickup details — kept intentionally short so the page stays poster-first.
+            </p>
           </div>
-
-          <div className="grid gap-4">
-            <EmailSignupForm />
-
-            <div className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-[#071423] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">Quick FAQ</p>
-              {faqItems.slice(0, 3).map((item) => (
-                <details key={item.question} className="group rounded-[1rem] border border-white/10 bg-white/[0.04] p-4">
-                  <summary className="cursor-pointer list-none text-sm font-semibold text-white">{item.question}</summary>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
+          <a
+            href="#"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-[#f5d300] px-5 text-sm font-semibold text-[#071223] transition hover:translate-y-[-1px]"
+          >
+            Join the waitlist
+          </a>
         </section>
 
         <footer className="pb-6 text-center text-xs leading-5 text-slate-400 sm:pb-8">
