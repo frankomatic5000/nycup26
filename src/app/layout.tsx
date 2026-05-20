@@ -14,14 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nycup26.com"),
   title: {
     default: "NYC Play Pass",
     template: "%s · NYC Play Pass",
   },
   description:
-    "NYC Play Pass is a mobile-first World Cup city pass concept for New York visitors, with venue perks, ticket links, pickup info, and a cleaner matchday experience.",
+    "NYC Play Pass is a mobile-first World Cup city pass for New York visitors, with venue planning, ticket lanes, pickup status, and a cleaner matchday flow.",
   applicationName: "NYC Play Pass",
   keywords: ["NYC Play Pass", "World Cup", "bracelet", "pass", "venues", "tickets"],
+  openGraph: {
+    title: "NYC Play Pass",
+    description:
+      "Plan your visit, browse venues, and follow the ticket lane for NYC Play Pass.",
+    url: "https://nycup26.com",
+    siteName: "NYC Play Pass",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

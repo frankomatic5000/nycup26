@@ -52,18 +52,64 @@ export type PowerTile = {
   note: string;
 };
 
+export type TickerItem = {
+  label: string;
+  value: string;
+  note: string;
+  tone: "blue" | "yellow" | "green";
+};
+
 export const site = {
-  name: "NYCUP26",
-  brandDisplay: "NYC Play Pass",
-  tagline: "Your city superpower for World Cup days",
+  name: "NYC Play Pass",
+  code: "NYCUP26",
+  tagline: "A city pass for World Cup matchdays",
   description:
-    "NYC Play Pass turns the World Cup bracelet into a city experience: watch games with friends, unlock venue perks, and move through NYC with special access and discounts.",
+    "Plan your visit, find a venue, and keep the day moving with one simple pass for NYC visitors.",
   domain: "nycup26.com",
-  eventDates: "June 11 - July 19 · 34 event days",
+  eventDates: "June 11 – July 19 · 34 event days",
   ticketPlatform: "Camarote Tickets / Eventbrite",
-  pickupLocation: "TBD: Iron Bar / Margaritaville / Planet Hollywood",
+  pickupLocation: "Pickup location TBD",
   languages: "English · Português · Español",
 };
+
+export const tickerItems: TickerItem[] = [
+  {
+    label: "Matchday",
+    value: "June 11",
+    note: "Opening day on the board.",
+    tone: "yellow",
+  },
+  {
+    label: "Route",
+    value: site.ticketPlatform,
+    note: "Keep both ticket paths ready.",
+    tone: "blue",
+  },
+  {
+    label: "Pickup",
+    value: site.pickupLocation,
+    note: "Final address still under review.",
+    tone: "green",
+  },
+  {
+    label: "Language",
+    value: "EN · PT · ES",
+    note: "Concise mobile copy.",
+    tone: "blue",
+  },
+  {
+    label: "Brand",
+    value: site.name,
+    note: "Current direction for the prototype.",
+    tone: "yellow",
+  },
+  {
+    label: "Event window",
+    value: site.eventDates,
+    note: "Thirty-four event days.",
+    tone: "green",
+  },
+];
 
 export const heroStats: HeroStat[] = [
   {
@@ -110,18 +156,23 @@ export const signupHighlights = [
 export const visitSteps: VisitStep[] = [
   {
     step: "01",
-    title: "Choose your game day",
-    note: "Pick the date you're in town and see what’s active.",
+    title: "Pick the game day",
+    note: "Choose your date first so the right venues and ticket lanes show up fast.",
   },
   {
     step: "02",
-    title: "Pick your vibe",
-    note: "Watch with friends, hit a rooftop, or plan a late-night stop.",
+    title: "Choose the neighborhood",
+    note: "Filter for Midtown, Chelsea, Downtown, rooftops, or late-night plans.",
   },
   {
     step: "03",
-    title: "Unlock the pass powers",
-    note: "Special access, perks, and discounts across the city.",
+    title: "Open the ticket lane",
+    note: "Use Camarote Tickets or Eventbrite until the final provider is locked.",
+  },
+  {
+    step: "04",
+    title: "Confirm pickup",
+    note: "Keep the pickup status visible so visitors know where to go next.",
   },
 ];
 
@@ -321,8 +372,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "When are the event dates?",
-    answer:
-      "June 11 through July 19 — 34 event days.",
+    answer: "June 11 through July 19 — 34 event days.",
   },
   {
     question: "Where do people pick up bracelets or passes?",
@@ -331,12 +381,10 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "What languages are supported?",
-    answer:
-      "English first, with Portuguese and Spanish support.",
+    answer: "English first, with Portuguese and Spanish support.",
   },
   {
     question: "What is the suggested brand display?",
-    answer:
-      "NYC Play Pass is the recommended direction for now.",
+    answer: "NYC Play Pass is the recommended direction for now.",
   },
 ];

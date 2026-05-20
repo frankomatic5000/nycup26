@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
-import { venues } from "@/data/site";
+import { site, venues } from "@/data/site";
 
 const monthFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -46,17 +46,17 @@ export function VenueDirectory() {
   }, [activeMonth]);
 
   return (
-    <section className="grid gap-5 rounded-[2rem] border border-white/10 bg-[#0b1b3a] p-4 sm:p-5 lg:p-6">
+    <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-[#071423] p-4 sm:p-5 lg:p-6">
       <div className="flex flex-col gap-4 border-b border-white/10 pb-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d300]">
+          <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#f5d300]">
             Venue directory
           </p>
           <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl">
-            Quick venue cards, optimized for phone screens.
+            Fast venue cards for mobile planning.
           </h3>
           <p className="max-w-2xl text-sm leading-6 text-slate-300">
-            Swap in confirmed venues, dates, and benefits without changing the layout.
+            {site.name} stays data-driven so venue dates, benefits, and ticket links can change without a redesign.
           </p>
         </div>
 
@@ -80,17 +80,17 @@ export function VenueDirectory() {
         {filteredVenues.map((venue, index) => (
           <article
             key={venue.id}
-            className="flex h-full flex-col rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-4 transition hover:border-[#f5d300]/30 hover:bg-white/[0.06]"
+            className="flex h-full flex-col rounded-[1.15rem] border border-white/10 bg-white/[0.04] p-4"
           >
             <div className="flex items-start justify-between gap-4">
-              <div className="space-y-1 pr-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
+              <div className="space-y-1 pr-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
                   {venue.city} · {venue.country}
                 </p>
                 <h4 className="text-xl font-bold tracking-tight text-white">{venue.name}</h4>
                 <p className="text-sm text-slate-300">{venue.neighborhood}</p>
               </div>
-              <span className="rounded-full bg-[#13345d] px-3 py-1 text-xs font-semibold text-white">
+              <span className="rounded-full bg-[#12345d] px-3 py-1 text-xs font-semibold text-white">
                 #{String(index + 1).padStart(2, "0")}
               </span>
             </div>
@@ -98,24 +98,25 @@ export function VenueDirectory() {
             <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.22em]">
               <span className="rounded-full bg-[#f5d300] px-3 py-1 text-[#071223]">{shortDate(venue.date)}</span>
               <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-white/80">
+                {venue.time}
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-white/80">
                 {monthLabel(venue.date)}
               </span>
             </div>
 
             <p className="mt-4 text-sm leading-6 text-slate-300">{venue.note}</p>
 
-            <div className="mt-4 grid gap-2 text-sm text-slate-300">
-              <div className="flex items-center justify-between rounded-[1rem] border border-white/10 bg-[#0b1b3a] px-3 py-2">
-                <span className="text-xs uppercase tracking-[0.24em] text-slate-400">Status</span>
-                <span className="font-medium text-white">{venue.pickupWindow}</span>
-              </div>
+            <div className="mt-4 rounded-[1rem] border border-white/10 bg-[#0a1a2e] px-3 py-2 text-sm text-slate-300">
+              <span className="text-[10px] uppercase tracking-[0.24em] text-slate-500">Status</span>
+              <p className="mt-1 font-medium text-white">{venue.pickupWindow}</p>
             </div>
 
             <a
               href={venue.ticketHref}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex items-center justify-center rounded-full bg-[#f5d300] px-4 py-3 text-sm font-semibold text-[#071223] transition hover:bg-[#ffe25c]"
+              className="mt-4 inline-flex items-center justify-center rounded-full bg-[#f5d300] px-4 py-3 text-sm font-semibold text-[#071223]"
             >
               {venue.ticketLabel}
             </a>
@@ -145,10 +146,10 @@ function FilterButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-3 py-2 text-sm font-medium transition ${
+      className={`rounded-full px-3 py-2 text-sm font-medium ${
         active
           ? "bg-[#f5d300] text-[#071223]"
-          : "border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/10"
+          : "border border-white/10 bg-white/[0.04] text-slate-200"
       }`}
     >
       {children}
