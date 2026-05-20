@@ -60,11 +60,11 @@ export type TickerItem = {
 };
 
 export const site = {
-  name: "NYC Play Pass",
+  name: "NYC GAME PASS",
   code: "NYCUP26",
-  tagline: "A cinematic city pass for World Cup matchdays",
+  tagline: "A bold World Cup city pass for NYC visitors",
   description:
-    "Turn New York into a matchday scene with one playful pass, a bracelet on the wrist, and mobile planning that stays easy to follow.",
+    "Turn New York into a matchday scene with one bracelet, a real-city feel, and a mobile path that stays easy to follow.",
   domain: "nycup26.com",
   eventDates: "June 11 – July 19 · 34 event days",
   ticketPlatform: "Camarote Tickets / Eventbrite",
@@ -119,8 +119,8 @@ export const heroStats: HeroStat[] = [
   },
   {
     label: "Venues",
-    value: "10+",
-    note: "World Cup viewing spots across NYC.",
+    value: "3 featured",
+    note: "A tight preview set for the homepage.",
   },
   {
     label: "Languages",
@@ -130,9 +130,9 @@ export const heroStats: HeroStat[] = [
 ];
 
 export const heroHighlights = [
-  "Statue of Liberty holding the World Cup trophy",
-  "A bracelet on the wrist as the visible pass cue",
-  "Fast mobile routes to venues, tickets, and pickup",
+  "Real Statue of Liberty photo treatment",
+  "Bracelet = the visible superpower object",
+  "Fast mobile route to venues and waitlist",
 ];
 
 export type CampaignPillar = {
@@ -144,22 +144,22 @@ export type CampaignPillar = {
 export const campaignPillars: CampaignPillar[] = [
   {
     eyebrow: "Poster moment",
-    title: "Liberty trades the torch for the trophy.",
-    note: "A hero image that feels like a city campaign, not a generic sports banner.",
+    title: "Liberty becomes the poster image.",
+    note: "Use a real photo and push the World Cup energy on top.",
   },
   {
     eyebrow: "Mobile-first",
-    title: "Big type, clear CTAs, zero scavenger hunt.",
-    note: "The first screen tells the story and the next tap takes people somewhere useful.",
+    title: "Big type, clear CTA, no scavenger hunt.",
+    note: "The first screen should sell the pass and invite action.",
   },
   {
     eyebrow: "City access",
-    title: "Bracelet, venues, tickets, pickup — in one flow.",
-    note: "Keep the pass legible so the value is obvious before launch details are final.",
+    title: "Bracelet, venues, tickets, pickup — one flow.",
+    note: "Keep the value obvious before launch details are final.",
   },
   {
     eyebrow: "Launch-safe",
-    title: "Built as a lightweight Vercel-ready marketing page.",
+    title: "Built as a lightweight Vercel-ready page.",
     note: "Static content, fast visuals, and a code path that stays easy to ship.",
   },
 ];
@@ -174,22 +174,22 @@ export const journeySteps: JourneyStep[] = [
   {
     step: "01",
     title: "Pick the matchday",
-    note: "Lead with the date, then let the rest of the page react around it.",
+    note: "Choose your date first so the right venues and ticket lanes show up fast.",
   },
   {
     step: "02",
     title: "Choose the neighborhood",
-    note: "Show venues by month so the page stays easy to scan on mobile.",
+    note: "Filter for Midtown, Chelsea, Downtown, rooftops, or late-night plans.",
   },
   {
     step: "03",
     title: "Open the ticket lane",
-    note: "Keep the booking path obvious with one primary button and one fallback.",
+    note: "Use Camarote Tickets or Eventbrite until the final provider is locked.",
   },
   {
     step: "04",
     title: "Confirm pickup",
-    note: "Make the bracelet story real by keeping the pickup status visible.",
+    note: "Keep the pickup status visible so visitors know where to go next.",
   },
 ];
 
@@ -274,19 +274,6 @@ export const venues: Venue[] = [
     note: "World Cup viewing venue. Benefits still being finalized.",
   },
   {
-    id: "copacabana",
-    name: "Copacabana",
-    city: "New York",
-    country: "USA",
-    date: "2026-06-15",
-    time: "TBD",
-    neighborhood: "Midtown",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/copacabana",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
     id: "iron-bar",
     name: "Iron Bar",
     city: "New York",
@@ -309,84 +296,6 @@ export const venues: Venue[] = [
     neighborhood: "Chelsea",
     pickupWindow: "Benefits setup pending",
     ticketHref: "https://example.com/nycup26/tickets/fushimi",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
-    id: "patron",
-    name: "Patron",
-    city: "New York",
-    country: "USA",
-    date: "2026-06-27",
-    time: "TBD",
-    neighborhood: "West Village",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/patron",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
-    id: "sombrero",
-    name: "Sombrero",
-    city: "New York",
-    country: "USA",
-    date: "2026-07-01",
-    time: "TBD",
-    neighborhood: "Midtown East",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/sombrero",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
-    id: "high-key-rooftop",
-    name: "High Key Rooftop",
-    city: "New York",
-    country: "USA",
-    date: "2026-07-05",
-    time: "TBD",
-    neighborhood: "Hell's Kitchen",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/high-key-rooftop",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
-    id: "bliss-rooftop",
-    name: "Bliss Rooftop",
-    city: "New York",
-    country: "USA",
-    date: "2026-07-09",
-    time: "TBD",
-    neighborhood: "Long Island City",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/bliss-rooftop",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
-    id: "vivid-cabaret",
-    name: "Vivid Cabaret",
-    city: "New York",
-    country: "USA",
-    date: "2026-07-13",
-    time: "TBD",
-    neighborhood: "Midtown",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/vivid-cabaret",
-    ticketLabel: "View venue lane",
-    note: "World Cup viewing venue. Benefits still being finalized.",
-  },
-  {
-    id: "planet-hollywood",
-    name: "Planet Hollywood",
-    city: "New York",
-    country: "USA",
-    date: "2026-07-19",
-    time: "TBD",
-    neighborhood: "Times Square",
-    pickupWindow: "Benefits setup pending",
-    ticketHref: "https://example.com/nycup26/tickets/planet-hollywood",
     ticketLabel: "View venue lane",
     note: "World Cup viewing venue. Benefits still being finalized.",
   },
@@ -430,7 +339,7 @@ export const sponsorSlots: SponsorSlot[] = [
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What is NYC Play Pass?",
+    question: "What is NYC GAME PASS?",
     answer:
       "A World Cup bracelet/pass concept for city access, venue perks, discounts, and matchday plans in New York.",
   },
@@ -449,6 +358,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "What is the suggested brand display?",
-    answer: "NYC Play Pass is the recommended direction for now, with NYCUP26 used as the campaign code.",
+    answer: "NYC GAME PASS is the recommended brand, with NYCUP26 used as the campaign code.",
   },
 ];

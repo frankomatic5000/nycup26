@@ -16,19 +16,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nycup26.com"),
   title: {
-    default: "NYC Play Pass",
-    template: "%s · NYC Play Pass",
+    default: "NYC GAME PASS",
+    template: "%s · NYC GAME PASS",
   },
   description:
-    "NYC Play Pass is a cinematic World Cup city pass for New York visitors, with a Statue of Liberty hero, venue discovery, ticket lanes, and a mobile-first matchday flow.",
-  applicationName: "NYC Play Pass",
-  keywords: ["NYC Play Pass", "World Cup", "bracelet", "pass", "venues", "tickets"],
+    "NYC GAME PASS is a bold World Cup city pass for New York visitors, with a real Statue of Liberty hero, venue discovery, ticket lanes, and a mobile-first matchday flow.",
+  applicationName: "NYC GAME PASS",
+  keywords: ["NYC GAME PASS", "World Cup", "bracelet", "pass", "venues", "tickets"],
   openGraph: {
-    title: "NYC Play Pass",
+    title: "NYC GAME PASS",
     description:
-      "A cinematic World Cup city pass for New York — Statue of Liberty, trophy energy, and a clean mobile journey.",
+      "A bold World Cup city pass for New York — Statue of Liberty, trophy energy, and a clean mobile journey.",
     url: "https://nycup26.com",
-    siteName: "NYC Play Pass",
+    siteName: "NYC GAME PASS",
     type: "website",
   },
 };
@@ -39,10 +39,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

@@ -16,10 +16,10 @@ export function EmailSignupForm() {
     >
       <div className="flex items-center justify-between gap-3">
         <label className="text-sm font-medium text-white/85" htmlFor="email">
-          Email for launch updates
+          Email for early access
         </label>
         <span className="rounded-full border border-[#54b36b]/30 bg-[#54b36b]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a7e1b1]">
-          Launch list
+          Waitlist
         </span>
       </div>
       <input
