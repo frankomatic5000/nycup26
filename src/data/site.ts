@@ -41,12 +41,23 @@ export type LaunchSignal = {
   note: string;
 };
 
+export type VisitStep = {
+  step: string;
+  title: string;
+  note: string;
+};
+
+export type PowerTile = {
+  title: string;
+  note: string;
+};
+
 export const site = {
   name: "NYCUP26",
-  brandDisplay: "NYCUP26 Fan Fest",
-  tagline: "World Cup bracelet + pass hub",
+  brandDisplay: "NYC Play Pass",
+  tagline: "Your city superpower for World Cup days",
   description:
-    "NYCUP26 is a festive, mobile-first World Cup hub for bracelet and pass updates, venue discovery, ticket links, pickup instructions, sponsors, and FAQ.",
+    "NYC Play Pass turns the World Cup bracelet into a city experience: watch games with friends, unlock venue perks, and move through NYC with special access and discounts.",
   domain: "nycup26.com",
   eventDates: "June 11 - July 19 · 34 event days",
   ticketPlatform: "Camarote Tickets / Eventbrite",
@@ -56,18 +67,18 @@ export const site = {
 
 export const heroStats: HeroStat[] = [
   {
-    label: "Event dates",
-    value: "34 days",
+    label: "Event days",
+    value: "34",
     note: "June 11 through July 19.",
   },
   {
     label: "Venues",
     value: "10+",
-    note: "World Cup viewing venues are in setup.",
+    note: "World Cup viewing spots across NYC.",
   },
   {
     label: "Languages",
-    value: "EN / PT / ES",
+    value: "3",
     note: "English first, with Portuguese and Spanish support.",
   },
 ];
@@ -76,7 +87,7 @@ export const launchSignals: LaunchSignal[] = [
   {
     label: "Domain",
     value: site.domain,
-    note: "Confirmed as the prototype domain.",
+    note: "Confirmed prototype domain.",
   },
   {
     label: "Pickup",
@@ -94,6 +105,43 @@ export const signupHighlights = [
   "Get launch updates and pickup announcements",
   "Swap venues, benefits, and ticket links from one data file",
   "Ready for English, Portuguese, and Spanish",
+];
+
+export const visitSteps: VisitStep[] = [
+  {
+    step: "01",
+    title: "Choose your game day",
+    note: "Pick the date you're in town and see what’s active.",
+  },
+  {
+    step: "02",
+    title: "Pick your vibe",
+    note: "Watch with friends, hit a rooftop, or plan a late-night stop.",
+  },
+  {
+    step: "03",
+    title: "Unlock the pass powers",
+    note: "Special access, perks, and discounts across the city.",
+  },
+];
+
+export const powerTiles: PowerTile[] = [
+  {
+    title: "Watch parties",
+    note: "Game-day energy with friends and fans.",
+  },
+  {
+    title: "Special access",
+    note: "Selected venues and experiences just for pass holders.",
+  },
+  {
+    title: "Venue discounts",
+    note: "Food, drinks, and entry perks at participating spots.",
+  },
+  {
+    title: "After-match plans",
+    note: "Keep the night going after the final whistle.",
+  },
 ];
 
 export const venues: Venue[] = [
@@ -267,12 +315,12 @@ export const sponsorSlots: SponsorSlot[] = [
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What is NYCUP26?",
+    question: "What is NYC Play Pass?",
     answer:
-      "A World Cup-related bracelet/pass site prototype for signups, venue discovery, ticket links, and pickup instructions.",
+      "A World Cup bracelet/pass concept for city access, venue perks, discounts, and matchday plans in New York.",
   },
   {
-    question: "When are the final event dates?",
+    question: "When are the event dates?",
     answer:
       "June 11 through July 19 — 34 event days.",
   },
@@ -289,6 +337,6 @@ export const faqItems: FaqItem[] = [
   {
     question: "What is the suggested brand display?",
     answer:
-      "NYCUP26 Fan Fest is the recommended display name for now, with Matchday Carnival as a strong alternative.",
+      "NYC Play Pass is the recommended direction for now.",
   },
 ];

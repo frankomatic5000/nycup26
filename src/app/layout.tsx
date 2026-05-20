@@ -15,13 +15,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "NYCUP26",
-    template: "%s · NYCUP26",
+    default: "NYC Play Pass",
+    template: "%s · NYC Play Pass",
   },
   description:
-    "NYCUP26 prototype for a festive World Cup bracelet/pass hub with editorial venues, ticket links, pickup info, sponsor placeholders, and launch updates.",
-  applicationName: "NYCUP26",
-  keywords: ["NYCUP26", "World Cup", "bracelet", "pass", "venues", "tickets"],
+    "NYC Play Pass is a mobile-first World Cup city pass concept for New York visitors, with venue perks, ticket links, pickup info, and a cleaner matchday experience.",
+  applicationName: "NYC Play Pass",
+  keywords: ["NYC Play Pass", "World Cup", "bracelet", "pass", "venues", "tickets"],
 };
 
 export default function RootLayout({

@@ -46,17 +46,17 @@ export function VenueDirectory() {
   }, [activeMonth]);
 
   return (
-    <section className="grid gap-5 rounded-[2rem] border border-white/10 bg-[#08111f] p-4 shadow-[0_30px_120px_rgba(2,6,23,0.4)] sm:p-6 lg:p-8">
-      <div className="flex flex-col gap-4 border-b border-white/10 pb-4 sm:pb-5 lg:flex-row lg:items-end lg:justify-between">
+    <section className="grid gap-5 rounded-[2rem] border border-white/10 bg-[#0b1b3a] p-4 sm:p-5 lg:p-6">
+      <div className="flex flex-col gap-4 border-b border-white/10 pb-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f5d300]">
             Venue directory
           </p>
           <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl">
-            Editorial venue cards that feel like a matchday rundown.
+            Quick venue cards, optimized for phone screens.
           </h3>
           <p className="max-w-2xl text-sm leading-6 text-slate-300">
-            Keep the venue list data-driven and swap in confirmed locations, dates, and ticket links without reworking the layout.
+            Swap in confirmed venues, dates, and benefits without changing the layout.
           </p>
         </div>
 
@@ -76,58 +76,46 @@ export function VenueDirectory() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {filteredVenues.map((venue, index) => (
           <article
             key={venue.id}
-            className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.05] p-4 text-white transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.07]"
+            className="flex h-full flex-col rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-4 transition hover:border-[#f5d300]/30 hover:bg-white/[0.06]"
           >
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-300 via-cyan-300 to-fuchsia-400" />
-            <div className="absolute right-3 top-3 rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">
-              #{String(index + 1).padStart(2, "0")}
-            </div>
-
-            <div className="space-y-4">
-              <div className="space-y-2 pr-14">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-200">
+            <div className="flex items-start justify-between gap-4">
+              <div className="space-y-1 pr-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
                   {venue.city} · {venue.country}
                 </p>
                 <h4 className="text-xl font-bold tracking-tight text-white">{venue.name}</h4>
                 <p className="text-sm text-slate-300">{venue.neighborhood}</p>
               </div>
+              <span className="rounded-full bg-[#13345d] px-3 py-1 text-xs font-semibold text-white">
+                #{String(index + 1).padStart(2, "0")}
+              </span>
+            </div>
 
-              <div className="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.22em]">
-                <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-emerald-100">
-                  {monthLabel(venue.date)}
-                </span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/75">
-                  Matchday {shortDate(venue.date)}
-                </span>
+            <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.22em]">
+              <span className="rounded-full bg-[#f5d300] px-3 py-1 text-[#071223]">{shortDate(venue.date)}</span>
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-white/80">
+                {monthLabel(venue.date)}
+              </span>
+            </div>
+
+            <p className="mt-4 text-sm leading-6 text-slate-300">{venue.note}</p>
+
+            <div className="mt-4 grid gap-2 text-sm text-slate-300">
+              <div className="flex items-center justify-between rounded-[1rem] border border-white/10 bg-[#0b1b3a] px-3 py-2">
+                <span className="text-xs uppercase tracking-[0.24em] text-slate-400">Status</span>
+                <span className="font-medium text-white">{venue.pickupWindow}</span>
               </div>
-
-              <dl className="grid grid-cols-2 gap-3 text-sm text-slate-300">
-                <div className="rounded-2xl border border-white/8 bg-slate-950/65 p-3">
-                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Date</dt>
-                  <dd className="mt-2 font-semibold text-white">{venue.date}</dd>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-slate-950/65 p-3">
-                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Time</dt>
-                  <dd className="mt-2 font-semibold text-white">{venue.time}</dd>
-                </div>
-                <div className="col-span-2 rounded-2xl border border-white/8 bg-slate-950/65 p-3">
-                  <dt className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Benefits status</dt>
-                  <dd className="mt-2 font-semibold text-white">{venue.pickupWindow}</dd>
-                </div>
-              </dl>
-
-              <p className="text-sm leading-6 text-slate-300">{venue.note}</p>
             </div>
 
             <a
               href={venue.ticketHref}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-300 to-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:brightness-105"
+              className="mt-4 inline-flex items-center justify-center rounded-full bg-[#f5d300] px-4 py-3 text-sm font-semibold text-[#071223] transition hover:bg-[#ffe25c]"
             >
               {venue.ticketLabel}
             </a>
@@ -136,7 +124,7 @@ export function VenueDirectory() {
       </div>
 
       {filteredVenues.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-white/15 bg-white/5 p-4 text-sm text-slate-300">
+        <div className="rounded-[1rem] border border-dashed border-white/15 bg-white/5 p-4 text-sm text-slate-300">
           No venues match this month yet. Add more sample data or confirm the final schedule.
         </div>
       ) : null}
@@ -159,7 +147,7 @@ function FilterButton({
       onClick={onClick}
       className={`rounded-full px-3 py-2 text-sm font-medium transition ${
         active
-          ? "bg-white text-slate-950"
+          ? "bg-[#f5d300] text-[#071223]"
           : "border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/10"
       }`}
     >

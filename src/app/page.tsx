@@ -2,240 +2,191 @@ import { EmailSignupForm } from "@/components/email-signup-form";
 import { VenueDirectory } from "@/components/venue-directory";
 import {
   faqItems,
-  heroStats,
   launchSignals,
+  powerTiles,
   site,
   signupHighlights,
   sponsorSlots,
   ticketLinks,
+  visitSteps,
 } from "@/data/site";
-
-const tickerItems = [
-  "Party people soccer",
-  "Launch-ready editorial layout",
-  "Festive city energy",
-  "Mobile-first and fast",
-  "Ticket-forward CTA system",
-  "Open questions stay editable",
-];
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden text-white">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
-        <div className="absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="absolute right-[-8rem] top-[16rem] h-[26rem] w-[26rem] rounded-full bg-fuchsia-500/10 blur-3xl" />
-        <div className="absolute bottom-[-10rem] left-[-10rem] h-[30rem] w-[30rem] rounded-full bg-emerald-400/10 blur-3xl" />
-      </div>
-
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-xs font-medium text-white/80 backdrop-blur">
+    <main className="min-h-screen text-white">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+        <div className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-[#0d2146] px-4 py-3 text-xs font-medium text-white/80 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 uppercase tracking-[0.28em] text-cyan-100">
-              NYCUP26 broadcast
+            <span className="rounded-full bg-[#f5d300] px-3 py-1 font-semibold uppercase tracking-[0.28em] text-[#071223]">
+              NYC Play Pass
             </span>
             <span>{site.eventDates}</span>
           </div>
-          <div className="flex flex-wrap items-center gap-2 text-white/70">
+          <div className="flex flex-wrap items-center gap-2 text-white/75">
             <span>{site.domain}</span>
             <span className="text-white/30">•</span>
             <span>{site.languages}</span>
           </div>
         </div>
 
-        <header className="rounded-[2rem] border border-white/10 bg-white/[0.05] px-4 py-4 shadow-[0_30px_120px_rgba(2,6,23,0.35)] backdrop-blur sm:px-6 lg:px-7">
+        <header className="rounded-[2rem] border border-white/10 bg-[#0b1b3a] px-4 py-4 sm:px-6 lg:px-7">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="space-y-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-emerald-200">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#f5d300]">
                 {site.name}
               </p>
               <h1 className="text-2xl font-black tracking-tight sm:text-3xl">
                 {site.tagline}
               </h1>
-              <p className="text-sm font-medium text-white/70">
-                Suggested display name: <span className="text-white">{site.brandDisplay}</span>
-              </p>
+              <p className="text-sm font-medium text-white/75">{site.description}</p>
             </div>
             <nav className="flex flex-wrap gap-2 text-sm text-slate-200">
-              <a className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:bg-white/10" href="#signup">
-                Sign up
+              <a className="rounded-full bg-[#f5d300] px-4 py-2 font-semibold text-[#071223] transition hover:bg-[#ffe25c]" href="#plan">
+                Plan your visit
               </a>
-              <a className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:bg-white/10" href="#venues">
+              <a className="rounded-full border border-[#7fb0ff] bg-[#13345d] px-4 py-2 transition hover:bg-[#173e6d]" href="#venues">
                 Venues
               </a>
-              <a className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:bg-white/10" href="#tickets">
-                Tickets
-              </a>
-              <a className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition hover:bg-white/10" href="#faq">
-                FAQ
+              <a className="rounded-full border border-[#7fb0ff] bg-[#13345d] px-4 py-2 transition hover:bg-[#173e6d]" href="#signup">
+                Get updates
               </a>
             </nav>
           </div>
         </header>
 
-        <section className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[2.25rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-5 shadow-[0_30px_120px_rgba(2,6,23,0.4)] backdrop-blur sm:p-6 lg:p-8">
-            <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75">
-              <span className="rounded-full border border-white/10 bg-slate-950/50 px-3 py-1">
-                Matchday hub
+        <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 sm:p-6 lg:p-7">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">
+              <span className="rounded-full border border-[#f5d300]/30 bg-[#f5d300]/10 px-3 py-1 text-[#f5d300]">
+                Matchday superpower
               </span>
-              <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-emerald-100">
-                Festival energy
+              <span className="rounded-full border border-[#54b36b]/30 bg-[#54b36b]/10 px-3 py-1 text-[#a7e1b1]">
+                Clean CBF palette
               </span>
             </div>
 
-            <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr] xl:items-end">
-              <div className="space-y-5">
-                <p className="max-w-xl text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100/80">
-                  Party people soccer in New York
-                </p>
-                <h2 className="max-w-3xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  NYCUP26 feels like a premium tournament hub, not a corporate event page.
-                </h2>
-                <p className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-                  We kept the structure data-driven and easy to update while pushing the visual language toward sports-front-page energy: bold, social, festive, and easy to scan on mobile.
-                </p>
+            <div className="mt-5 space-y-4">
+              <p className="max-w-xl text-sm font-semibold uppercase tracking-[0.28em] text-[#f5d300]/90">
+                A pass for NYC visitors who want games + perks
+              </p>
+              <h2 className="max-w-3xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Turn your bracelet into city superpowers.
+              </h2>
+              <p className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+                NYC Play Pass is built for visitors coming to watch World Cup games with friends — then keep the day going with special access, venue discounts, and a cleaner way to plan the city around the matches.
+              </p>
 
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="#signup"
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-emerald-300 via-lime-300 to-yellow-300 px-5 text-sm font-semibold text-slate-950 transition hover:brightness-105"
-                  >
-                    Join the waitlist
-                  </a>
-                  <a
-                    href="#tickets"
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] px-5 text-sm font-semibold text-white transition hover:bg-white/10"
-                  >
-                    See ticket lanes
-                  </a>
-                  <a
-                    href="#venues"
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-5 text-sm font-semibold text-cyan-50 transition hover:bg-cyan-300/15"
-                  >
-                    Browse venues
-                  </a>
-                </div>
-              </div>
-
-              <aside className="grid gap-3 rounded-[1.75rem] border border-white/10 bg-slate-950/50 p-4">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
-                    Launch board
-                  </p>
-                  <p className="mt-2 text-2xl font-black tracking-tight text-white">Countdown mode</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">
-                    Dates are set. Ticketing, pickup location, and benefit setup are still being finalized.
-                  </p>
-                </div>
-
-                <div className="grid gap-3">
-                  {launchSignals.map((signal) => (
-                    <div key={signal.label} className="rounded-2xl border border-white/10 bg-white/[0.05] p-4">
-                      <div className="flex items-start justify-between gap-3">
-                        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
-                          {signal.label}
-                        </p>
-                        <span className="rounded-full border border-white/10 bg-slate-950/60 px-2.5 py-1 text-xs font-semibold text-white/80">
-                          Ready
-                        </span>
-                      </div>
-                      <p className="mt-2 text-lg font-bold text-white">{signal.value}</p>
-                      <p className="mt-1 text-sm leading-6 text-slate-300">{signal.note}</p>
-                    </div>
-                  ))}
-                </div>
-              </aside>
-            </div>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-[1.4rem] border border-white/10 bg-white/[0.05] p-4"
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#plan"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-[#f5d300] px-5 text-sm font-semibold text-[#071223] transition hover:bg-[#ffe25c]"
                 >
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                    {stat.label}
-                  </p>
-                  <p className="mt-2 text-3xl font-black tracking-tight text-white">{stat.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{stat.note}</p>
-                </div>
+                  Plan your visit
+                </a>
+                <a
+                  href="#venues"
+                  className="inline-flex h-12 items-center justify-center rounded-full border border-[#7fb0ff] bg-[#13345d] px-5 text-sm font-semibold text-white transition hover:bg-[#173e6d]"
+                >
+                  Browse venues
+                </a>
+                <a
+                  href="#signup"
+                  className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-transparent px-5 text-sm font-semibold text-white transition hover:bg-white/8"
+                >
+                  Get updates
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                "Watch games",
+                "Special access",
+                "Venue discounts",
+                "After-match plans",
+              ].map((item) => (
+                <span key={item} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-white/80">
+                  {item}
+                </span>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-5">
-            <section className="rounded-[2.25rem] border border-white/10 bg-white/[0.05] p-5 shadow-[0_30px_120px_rgba(2,6,23,0.35)] backdrop-blur sm:p-6">
-              <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-200">
-                    Matchday bulletin
-                  </p>
-                  <h3 className="mt-1 text-xl font-bold text-white">Open questions stay visible and editable.</h3>
-                </div>
-                <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-100">
-                  Live draft
-                </span>
-              </div>
+          <aside className="grid gap-3 rounded-[2rem] border border-white/10 bg-[#0b1b3a] p-4 sm:p-5">
+            <div className="rounded-[1.5rem] border border-[#f5d300]/20 bg-[#f5d300]/10 p-4 text-[#fff6bf]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#f5d300]">Pass at a glance</p>
+              <p className="mt-2 text-xl font-black text-white">One pass, more city.</p>
+              <p className="mt-2 text-sm leading-6 text-slate-200">
+                The bracelet opens up watch spots, parties, and specials across NYC while keeping the experience simple on mobile.
+              </p>
+            </div>
 
-              <div className="mt-4 grid gap-3">
-                {[
-                  { label: "Domain", value: site.domain },
-                  { label: "Event dates", value: site.eventDates },
-                  { label: "Ticket platform", value: site.ticketPlatform },
-                  { label: "Pickup location", value: site.pickupLocation },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-white/10 bg-slate-950/55 p-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                      {item.label}
-                    </p>
-                    <p className="mt-2 text-lg font-semibold text-white">{item.value}</p>
+            <div className="grid gap-3">
+              {launchSignals.map((signal) => (
+                <div key={signal.label} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">{signal.label}</p>
+                    <span className="rounded-full bg-[#13345d] px-2.5 py-1 text-xs font-semibold text-white">Live</span>
                   </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="rounded-[2.25rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/10 via-white/[0.05] to-emerald-400/10 p-5 shadow-[0_30px_120px_rgba(2,6,23,0.35)] backdrop-blur sm:p-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-fuchsia-100/85">
-                Scene setter
-              </p>
-              <p className="mt-2 text-2xl font-black tracking-tight text-white">City energy, fan culture, fast updates.</p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                The page now reads more like a sports hub: denser modules, stronger accents, and a premium CTA rhythm while keeping the same content model.
-              </p>
-            </section>
-          </div>
+                  <p className="mt-2 text-lg font-bold text-white">{signal.value}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{signal.note}</p>
+                </div>
+              ))}
+            </div>
+          </aside>
         </section>
 
-        <section className="overflow-hidden rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75 backdrop-blur">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            {tickerItems.map((item) => (
-              <span key={item} className="inline-flex items-center gap-4">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
-                <span>{item}</span>
-              </span>
+        <section id="plan" className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 sm:p-5 lg:grid-cols-[1.05fr_0.95fr] lg:p-6">
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#f5d300]">Plan your visit</p>
+            <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+              Keep the experience short, clear, and mobile-first.
+            </h3>
+            <p className="max-w-2xl text-sm leading-6 text-slate-300">
+              Start with the date, choose the neighborhood, and know what the bracelet unlocks before you arrive.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {visitSteps.map((step, index) => (
+              <div key={step.step} className="rounded-[1.25rem] border border-white/10 bg-[#0b1b3a] p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-[#f5d300] px-2.5 py-1 text-xs font-semibold text-[#071223]">{step.step}</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+                    Step {index + 1}
+                  </span>
+                </div>
+                <h4 className="mt-3 text-lg font-bold text-white">{step.title}</h4>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{step.note}</p>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.05] p-4 sm:p-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {powerTiles.map((tile) => (
+            <div key={tile.title} className="rounded-[1.25rem] border border-white/10 bg-[#13345d] p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#f5d300]">Pass power</p>
+              <h4 className="mt-2 text-lg font-bold text-white">{tile.title}</h4>
+              <p className="mt-2 text-sm leading-6 text-slate-200">{tile.note}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 sm:p-5 lg:grid-cols-[1.05fr_0.95fr] lg:p-6">
           <div id="signup" className="space-y-4">
             <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-200">
-                Email signup
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#54b36b]">Email signup</p>
               <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-                Build the audience before the ticket system is locked.
+                Get launch updates before the ticket system is locked.
               </h3>
               <p className="max-w-2xl text-sm leading-6 text-slate-300">
-                Keep this simple and swap in the chosen email service later. The form validates the experience and gives you a launch-ready capture point.
+                Keep it simple and swap in the chosen email service later. This is the launch-ready capture point for visitors, partners, and pickup announcements.
               </p>
             </div>
             <ul className="grid gap-2 text-sm text-slate-300 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {signupHighlights.map((item) => (
-                <li key={item} className="flex gap-3 rounded-2xl border border-white/8 bg-slate-950/55 p-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-emerald-300 to-cyan-300" />
+                <li key={item} className="flex gap-3 rounded-[1rem] border border-white/10 bg-[#0b1b3a] p-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#f5d300]" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -248,34 +199,30 @@ export default function Home() {
           <VenueDirectory />
         </section>
 
-        <section id="tickets" className="grid gap-4 rounded-[2rem] border border-white/10 bg-[#08111f] p-4 shadow-[0_30px_120px_rgba(2,6,23,0.35)] sm:p-6 lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
-          <div className="space-y-4 rounded-[1.7rem] border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.18),rgba(16,185,129,0.08),rgba(255,255,255,0.05))] p-5 sm:p-6">
+        <section id="tickets" className="grid gap-4 rounded-[2rem] border border-white/10 bg-[#0b1b3a] p-4 sm:p-5 lg:grid-cols-[1.1fr_0.9fr] lg:p-6">
+          <div className="space-y-4 rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
             <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75">
-              <span className="rounded-full border border-white/10 bg-slate-950/50 px-3 py-1">
-                Ticket lane
-              </span>
-              <span className="rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-amber-100">
-                Priority CTA
-              </span>
+              <span className="rounded-full bg-[#f5d300] px-3 py-1 text-[#071223]">Ticket lane</span>
+              <span className="rounded-full border border-[#7fb0ff] bg-[#13345d] px-3 py-1 text-white">Priority CTA</span>
             </div>
             <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Make ticketing feel official, urgent, and easy to scan.
+              Keep ticketing and sponsorship easy to scan.
             </h3>
             <p className="max-w-2xl text-sm leading-6 text-slate-300">
-              These links are now aligned with the likely ticketing options. Swap them once the final provider is confirmed.
+              These links stay flexible until the final provider is confirmed.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={ticketLinks[0].href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-emerald-300 via-lime-300 to-yellow-300 px-5 text-sm font-semibold text-slate-950 transition hover:brightness-105"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-[#f5d300] px-5 text-sm font-semibold text-[#071223] transition hover:bg-[#ffe25c]"
               >
                 Open ticket hub
               </a>
               <a
                 href="#faq"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] px-5 text-sm font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-[#7fb0ff] bg-[#13345d] px-5 text-sm font-semibold text-white transition hover:bg-[#173e6d]"
               >
                 Read the FAQ
               </a>
@@ -289,53 +236,43 @@ export default function Home() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className={`group rounded-[1.7rem] border border-white/10 p-5 transition hover:-translate-y-0.5 hover:border-cyan-300/30 ${
-                  index === 0
-                    ? "bg-white/[0.07]"
-                    : "bg-white/[0.04]"
-                }`}
+                className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 transition hover:border-[#f5d300]/40 hover:bg-white/[0.06]"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                      {index === 0 ? "Primary ticket path" : index === 1 ? "Sales structure" : "Launch comms"}
+                      {index === 0 ? "Primary ticket path" : index === 1 ? "Fallback" : "Partners"}
                     </p>
                     <h4 className="mt-2 text-xl font-bold tracking-tight text-white">{link.label}</h4>
                   </div>
-                  <span className="rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs font-semibold text-white/70">
+                  <span className="rounded-full bg-[#13345d] px-3 py-1 text-xs font-semibold text-white">
                     0{index + 1}
                   </span>
                 </div>
                 <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">{link.note}</p>
-                <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan-100">
-                  Open sample link
-                  <span className="transition group-hover:translate-x-0.5">→</span>
-                </div>
               </a>
             ))}
           </div>
         </section>
 
-        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.05] p-4 sm:p-6 lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
+        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 sm:p-5 lg:grid-cols-[0.9fr_1.1fr] lg:p-6">
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">
-              Pickup instructions
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#54b36b]">Pickup plan</p>
             <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Keep pickup messaging prominent, fast, and operationally clear.
+              Keep pickup messaging simple and close to the action.
             </h3>
             <p className="max-w-2xl text-sm leading-6 text-slate-300">
-              The final pickup location is still under review, so the layout is ready for hours, map embeds, support contacts, and arrival notes without changing the structure.
+              The final pickup location is still under review, so the page can later swap in the address, hours, map links, and arrival notes without a redesign.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
               {
                 title: "Current status",
-                text: "Pickup location, hours, and flow are placeholders until operations confirms them.",
+                text: "Pickup location, hours, and flow are still being decided.",
               },
               {
-                title: "Recommended update path",
+                title: "Recommended path",
                 text: "Swap in the final address, arrival instructions, and staffing notes when ready.",
               },
               {
@@ -347,35 +284,31 @@ export default function Home() {
                 text: "Leave room for contact details, map links, and day-of clarifications.",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-[1.4rem] border border-white/10 bg-slate-950/55 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                  {item.title}
-                </p>
+              <div key={item.title} className="rounded-[1rem] border border-white/10 bg-[#0b1b3a] p-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#f5d300]">{item.title}</p>
                 <p className="mt-3 text-sm leading-6 text-slate-200">{item.text}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-[#08111f] p-4 sm:p-6 lg:grid-cols-[0.8fr_1.2fr] lg:p-8">
+        <section className="grid gap-4 rounded-[2rem] border border-white/10 bg-[#0b1b3a] p-4 sm:p-5 lg:grid-cols-[0.8fr_1.2fr] lg:p-6">
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#f5d300]">
               Sponsor placeholders
             </p>
             <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Reserved space for partners, tiers, and sponsor-forward storytelling.
+              Reserved space for institutions, venue partners, and community support.
             </h3>
             <p className="max-w-2xl text-sm leading-6 text-slate-300">
-              The section is intentionally ready for logos and links later, but styled now with the kind of presence a major tournament hub needs.
+              The section is ready for logos and links later, but stays clean and simple now.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-3">
             {sponsorSlots.map((slot) => (
-              <div key={slot.name} className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
-                  {slot.name}
-                </p>
-                <p className="mt-3 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-100">
+              <div key={slot.name} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">{slot.name}</p>
+                <p className="mt-3 inline-flex rounded-full bg-[#54b36b]/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#a7e1b1]">
                   {slot.status}
                 </p>
                 <p className="mt-3 text-sm leading-6 text-slate-300">{slot.note}</p>
@@ -384,20 +317,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="faq" className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.05] p-4 sm:p-6 lg:p-8">
+        <section id="faq" className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 sm:p-5 lg:p-6">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">
-              FAQ
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#54b36b]">FAQ</p>
             <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Answer the big questions without changing the structure.
+              Answer the big questions without adding clutter.
             </h3>
           </div>
           <div className="grid gap-3">
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-[1.4rem] border border-white/10 bg-slate-950/50 p-4 open:bg-white/[0.06]"
+                className="group rounded-[1.2rem] border border-white/10 bg-[#0b1b3a] p-4 open:bg-[#10264b]"
               >
                 <summary className="cursor-pointer list-none text-base font-semibold text-white">
                   {item.question}
@@ -409,7 +340,7 @@ export default function Home() {
         </section>
 
         <footer className="pb-8 text-center text-xs leading-5 text-slate-400">
-          NYCUP26 prototype · festive sports-event UI refresh · sample data only · not deployed to production.
+          NYCUP26 prototype · now exploring the NYC Play Pass direction · sample data only.
         </footer>
       </div>
     </main>
